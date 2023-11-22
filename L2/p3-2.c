@@ -7,7 +7,7 @@
 #include <semaphore.h>
 
 
-#define ILOSC_PROB 1
+#define ILOSC_PROB 3
 #define liczba_watkow 3
 
 float t[liczba_watkow];
@@ -19,8 +19,7 @@ void* p (void* k) { // funkcja watku (watek)
          int l,i;
  
 	 for (i=0;i<ILOSC_PROB;i++) {
-          srand(time(0));
-      	 l = rand()%10;
+      	 l = rand()%100;
          
          t[nr-1] = l;
           
@@ -28,7 +27,7 @@ void* p (void* k) { // funkcja watku (watek)
          
 	 }
 
-	 sem_post(&sem);
+	  sem_post(&sem);
          
 return 0;     
 }
@@ -51,6 +50,7 @@ for (i=1;i<=liczba_watkow;i++)
 {
     pthread_create(&w[i-1],0,p,(void*)i);
     sem_wait(&sem);
+
 }
 
 

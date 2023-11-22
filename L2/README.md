@@ -21,3 +21,19 @@ W praktyce, zakończenie wątku podczas wykonywania funkcji wypisz bez odpowiedn
 # 5philosophers.c
 
 Klasyczny problem synchronizacji wielowątkowej. Pięciu filozofów siedzi przy okrągłym stole, każdy z nich ma widelce po obu stronach i muszą podnieść oba widelce, aby zjeść. Kod zapewnia, że każdy filozof na przemian myśli i je, unikając jednocześnie zakleszczenia poprzez zapewnienie, że filozof je tylko wtedy, gdy oba widelce są dostępne.
+
+# Kiedy używamy semafora, a kiedy mutexu?
+
+Mutexy są używane, gdy chcemy chronić sekcję krytyczną, która nie może być jednocześnie wykonywana przez więcej niż jeden wątek. Semafor może być używany do kontroli dostępu do zasobu, który może być używany przez określoną liczbę wątków jednocześnie.
+
+# Czym się różni semafor od mutexu?
+
+Semafor jest zmienną, która jest używana do synchronizacji procesów i wątków. Może mieć wartość większą niż 1 i jest używany do kontroli dostępu do zasobu, który może być używany przez określoną liczbę wątków jednocześnie. Mutex to specjalny typ semafora, który może mieć tylko wartości 0 lub 1. Jest używany do zapewnienia wzajemnego wykluczenia w sekcjach krytycznych kodu.
+
+# Jak synchronizujemy procesy, w których występują sekcje krytyczne?
+
+Synchronizację procesów, w których występują sekcje krytyczne, można osiągnąć za pomocą różnych mechanizmów, takich jak semafory, mutexy, monitory czy warunki wyścigu. Te mechanizmy zapewniają, że tylko jeden proces lub wątek na raz może wykonywać sekcję krytyczną.
+
+# Jak zdefiniować funkcje bezpieczne ze względu na wielowątkowość?
+
+Funkcje bezpieczne ze względu na wielowątkowość są tak zaprojektowane, aby unikać problemów związanych z równoczesnym dostępem do współdzielonych zasobów. Można to osiągnąć poprzez użycie mechanizmów synchronizacji, takich jak mutexy lub semafory, które zapewniają, że tylko jeden wątek na raz może wykonywać sekcję krytyczną funkcji.
